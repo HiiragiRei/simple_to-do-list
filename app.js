@@ -3,7 +3,7 @@ var nodeList = document.getElementsByTagName("LI");
 var i;
 for(i=0; i<nodeList.length; ++i){
     var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
+    var txt = document.createTextNode("\u00D7"); // \u00D7 = 'x'
 
     span.className = "close";
     span.appendChild(txt); // appendChild : 
@@ -20,7 +20,12 @@ for(i=0; i<close.length; ++i){
 }
 
 // add "checked" symbol when clicking list item
-
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
 
 // create new list when clicking on "Add" button
 function newElement(){  // back at html <span onclick="newElement()" ...>
